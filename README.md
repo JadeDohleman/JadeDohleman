@@ -46,4 +46,4 @@ I have co-authored several papers in journals like **Frontiers in Medicine**, **
 - 📞 [714.381.6260](tel:7143816260)
 
 ---
-*"The application of knowledge in its creative forms, whether through media or craft."*
+*"Imperfection is the only perfect thing. It is perfect in its imperfection, its perfection its only imperfection." ~Me, like 15 years ago.*
