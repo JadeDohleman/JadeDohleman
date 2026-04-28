@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jade Dohleman | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-jade: #4E9F82;
+            --dark-jade: #2c604e;
+            --light-jade: #e8f4f0;
+            --accent-peach: #f5a894; /* Complementary soft peach */
+            --text-main: #3d4a46;
+            --text-light: #7a8c86;
+            --bg-color: #fcfdfc;
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(78, 159, 130, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(245, 168, 148, 0.08), transparent 25%);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-jade), var(--dark-jade));
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem 6rem;
+            box-shadow: 0 4px 20px rgba(78, 159, 130, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: var(--bg-color);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 0.8rem;
+            color: var(--light-jade);
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        header a:hover {
+            color: var(--accent-peach);
+        }
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .social-links a:hover {
+            background: var(--accent-peach);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(245, 168, 148, 0.4);
+        }
+        .container {
+            max-width: 900px;
+            margin: -3rem auto 2rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border: 1px solid rgba(78, 159, 130, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(78, 159, 130, 0.08);
+        }
+        h2 {
+            color: var(--dark-jade);
+            font-weight: 600;
+            font-size: 2rem;
+            display: inline-block;
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 4px;
+            bottom: -6px;
+            left: 0;
+            background: var(--accent-peach);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        section:hover h2::after {
+            width: 100%;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-peach);
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+        .job-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--primary-jade);
+        }
+        .job-meta {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .job-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-peach);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-category {
+            background: var(--light-jade);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-jade);
+            transition: all 0.3s ease;
+        }
+        .skill-category:hover {
+            background: white;
+            box-shadow: 0 8px 20px rgba(78, 159, 130, 0.12);
+            transform: scale(1.02);
+        }
+        .skill-category strong {
+            color: var(--dark-jade);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .coursework {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light-jade);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            border-left: 4px solid var(--primary-jade);
+        }
+        .coursework p {
+            margin: 0.5rem 0 0 0;
+        }
+        .coursework strong {
+            color: var(--dark-jade);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        .pub-link {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        .pub-link:hover {
+            color: var(--primary-jade);
+            text-decoration: underline;
+            text-decoration-color: var(--accent-peach);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+        .pub-link strong {
+            color: var(--dark-jade);
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: transparent;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+        
+        @media (max-width: 768px) {
+            header { padding: 4rem 1rem 5rem; }
+            header h1 { font-size: 2.5rem; }
+            .container { margin-top: -2rem; }
+            section { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Jade Dohleman</h1>
+        <p>Scientist | Engineer | Developer | Product | Capital | Services</p>
+        <p>Southern California | English, American Sign Language</p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/jade-dohleman" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://github.com/JadeDohleman" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:jmodohleman@gmail.com" title="Email">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+            </a>
+            <a href="tel:7143816260" title="Phone">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.559-8.907.745-.361 1.266-.615 1.266-.615l-3.442-6.315s-.562.271-1.205.613c-2.116 1.135-.356 12.276 7.601 16.148.634.308 1.225.542 1.225.542l3.699 4.318z"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>My impassioned experience lies in scientific and technological research amongst a host of diverse interests and activities. I strongly desire to work in a field where I am genuinely pursuing either scientific inquiry or the enterprise of engineering design. My background fields include nanoengineering, materials science, health science, ophthalmological science, and software development. I enjoy the application of knowledge in its creative forms, whether through media or craft.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <ul>
+                <li>
+                    <div class="job-title">Principal Consultant & Software Architect</div>
+                    <div class="job-meta"><a href="https://www.jadepcsllc.com/" target="_blank">Jade Product Capital Services LLC</a> | Dec 2025 – Present</div>
+                    <p>Providing specialized consulting and custom software services for product capital and technological development. Focusing on bridging the gap between scientific research and enterprise-grade engineering solutions.</p>
+                </li>
+                <li>
+                    <div class="job-title">Clinical Imaging Analyst</div>
+                    <div class="job-meta"><a href="https://healthsciences.ucsd.edu/" target="_blank">UC San Diego Health Sciences</a> | <a href="https://shileyeye.ucsd.edu/" target="_blank">Computational Ophthalmology Group</a> | 2017–2025</div>
+                    <p><strong>Advisor:</strong> Linda Zangwill | <strong>Collaborators:</strong> Akram Belghith, Mark Christopher.</p>
+                    <p>Translated the San Diego Automated Layer Segmentation Algorithm (SALSA) from MATLAB to Python3 with greatly extended functionality. Leveraged supercomputers to perform automated layer segmentation of tens of terabytes of clinical optical coherence tomography eye scans for feature extraction toward the group's deep learning pipelines. Built out existing image segmentation algorithms into the backbone of what is called the Shiley Image Processing Pipeline. Provided research support in the form of software solutions, code, summary exports, weekly reports, diagrams, and documentation.</p>
+                </li>
+                <li>
+                    <div class="job-title">Start-Up Engineer</div>
+                    <div class="job-meta"><a href="https://nanome.ai" target="_blank">Nanome Inc</a> | 2015</div>
+                    <p>First investor and current advisor. Received $5k education start-up pitch deck award for what is now Nanome Inc. Participated in UCSD The Basement and I-Corps Lean LaunchPad accelerators. Developed technologies leveraging state-of-the-art virtual reality hardware for education and engineering applications, such as a dynamic quantum wavefunction visualization demo and primitive molecular modelling demos.</p>
+                </li>
+                <li>
+                    <div class="job-title">Senior Capstone Design Project</div>
+                    <div class="job-meta"><a href="https://nanoengineering.ucsd.edu" target="_blank">UCSD Nanoengineering Department</a> | Sponsor: <a href="https://nanocomposix.com" target="_blank">nanoComposix</a> | 2015</div>
+                    <p>Collaborated with an industry sponsor on a team design lab that demonstrated results toward heterogeneous silver nanoribbon size-filtration and separation. Imaging validated using Lumerical photonics simulations software outfitted with custom python code.</p>
+                </li>
+                <li>
+                    <div class="job-title">Research Assistant</div>
+                    <div class="job-meta"><a href="https://nanoengineering.ucsd.edu" target="_blank">UCSD Nanoengineering Department</a> | Advisor: Donald Sirbuly | 2014</div>
+                    <p>Synthesized nanoparticle monolayers via Langmuir-Blodgett deposition on thin film. Characterized prepared nanoparticles and their monolayered forms with TEM, SEM, and X-ray crystallography. Performed chemical nanoparticle surface functionalization.</p>
+                </li>
+                <li>
+                    <div class="job-title">Administrative Assistant</div>
+                    <div class="job-meta"><a href="https://theweldingwarehouse.com" target="_blank">The Welding Warehouse Inc</a> | 2012–Present</div>
+                    <p>Managed a team of three to build the front-end of a heavy industry retail company. Providing annual upgrades, check-ups, and maintenance.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <ul>
+                <li>
+                    <a href="https://doi.org/10.3389/fmed.2022.872658" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        <strong>Frontiers in Medicine, 2022</strong>
+                        "Comparison of Optic Disc Ovality Index and Rotation Angle Measurements in Myopic Eyes Using Photography and OCT Based Techniques"
+                    </a>
+                </li>
+                <li>
+                    <a href="https://doi.org/10.1016/j.ajo.2021.11.030" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        <strong>American Journal of Ophthalmology, 2021</strong>
+                        "Bruch’s Membrane Opening Detection in Healthy and Glaucoma Eyes With and Without Axial High Myopia in an American and Korean Cohort."
+                    </a>
+                </li>
+                <li>
+                    <a href="https://doi.org/10.1038/s41598-021-88406-1" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        <strong>Sci Rep, 2021</strong>
+                        "The influence of axial myopia on optic disc characteristics of glaucoma eyes"
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="teaching">
+            <h2>Teaching Experience</h2>
+            <ul>
+                <li>
+                    <div class="job-title">Tutor</div>
+                    <div class="job-meta">Chegg Inc | Remote tutoring, various subjects | 2015–2016</div>
+                </li>
+                <li>
+                    <div class="job-title">Tutor</div>
+                    <div class="job-meta"><a href="https://ucsd.edu" target="_blank">UC San Diego</a> | Intro to Matlab, group tutoring & office hours | 2013</div>
+                </li>
+                <li>
+                    <div class="job-title">Mission Specialist</div>
+                    <div class="job-meta">Mathobotix, <a href="https://uci.edu" target="_blank">UC Irvine</a> | 2012</div>
+                    <p>Ran week-long K-8 summer camps teaching fundamentals of STEAM and robotics using Lego Mindstorms; created and presented interactive nanotechnology experiments.</p>
+                </li>
+                <li>
+                    <div class="job-title">College Aide</div>
+                    <div class="job-meta">HBUHSD | Summer chemistry course aide | 2011–2012</div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <div class="job-title">University of California, San Diego</div>
+                    <div class="job-meta">2011–2017</div>
+                    <p>Bachelor of Science, Nanoengineering. Focus in Materials Science with a Minor in Mathematics.</p>
+                    
+                    <div class="coursework">
+                        <strong>Key Coursework</strong>
+                        <p><em>Computation:</em> Digital Design, Analog Design, Circuits & Components, Natural Computation Machine Learning, Modelling of Nanosystems</p>
+                        <p><em>Mathematics:</em> Vector Calculus, Linear Algebra (Honors), Differential Equations, Real Analysis, Complex Analysis, Statistics</p>
+                        <p><em>Nanoengineering:</em> Nanoscale Sciences & Materials, Nanoscale Material Selection, Applications, Design, Synthesis, & Fabrication, Nanoscale Energy, Imaging, & Characterization</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Computer Languages</strong>
+                    Python, Matlab, C, Fortran
+                </div>
+                <div class="skill-category">
+                    <strong>Software & Systems</strong>
+                    Android, LATEX, SQL
+                </div>
+                <div class="skill-category">
+                    <strong>Core Competencies</strong>
+                    Supercomputer Analysis, Nanochemistry, Project Management, Data Mining & Analytics, Coding & Software-Based Design
+                </div>
+            </div>
+        </section>
+        
+        <section id="awards">
+            <h2>Awards and Activities</h2>
+            <ul>
+                <li><strong>2021:</strong> "Optic Disc Characteristics of Glaucoma Eyes with and without Axial Myopia" E-Poster voted as one of the 7 top-scored posters of the <a href="https://worldglaucoma.org" target="_blank">9th World Glaucoma E-Congress</a>.</li>
+                <li><strong>2021:</strong> <a href="https://arvo.org" target="_blank">ARVO</a> Poster: "Comparing measurements of optic disc ovality index and rotation angle in myopic eyes using manual, clinical disc margin photography-based and automated, Bruch’s membrane opening OCT-based techniques."</li>
+                <li><strong>2015:</strong> UCSD Outstanding Student Org of the Year Award for VR Club.</li>
+                <li><strong>2015:</strong> Money and TV appearance for winning an inter-collegiate jeopardy competition.</li>
+                <li>Ballroom Dance (UCSD), Track & Field, Satire Writing for Campus Paper.</li>
+            </ul>
+        </section>
+
+        <section id="independent-projects">
+            <h2>Independent Works & Projects</h2>
+            <ul>
+                <li>
+                    <div class="job-title"><a href="https://www.papertreestudios.org/" target="_blank">Paper Tree Studios</a></div>
+                    <div class="job-meta">Independent Game Development Organization</div>
+                    <p>Current software and creative development project focusing on interactive mechanics and world-building.</p>
+                </li>
+                <li>
+                    <div class="job-title"><a href="https://fractalcalculus.com" target="_blank">Fractal Calculus</a></div>
+                    <div class="job-meta">Collaborative Research & Computation</div>
+                    <p>Collaborative work exploring the boundaries of fractal mathematics and computational implementations.</p>
+                </li>
+                <li>
+                    <div class="job-title"><a href="https://thebeeandtherose.com" target="_blank">The Bee and The Rose</a></div>
+                    <div class="job-meta">Independent Design & Creative Media</div>
+                    <p>A showcase of independent design work, blending aesthetic precision with creative storytelling.</p>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Jade Dohleman. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
