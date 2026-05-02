@@ -30,7 +30,7 @@ Several years of experience at **UC San Diego Health Sciences** (Computational O
 
 ---
 
-## 📚 Publications & Recognition
+## 📚 Publications
 I have co-authored several papers in journals like **Frontiers in Medicine**, **American Journal of Ophthalmology**, and **Scientific Reports**, focusing on automated layer segmentation and optic disc analysis. 
 
 - [Comparison of Optic Disc Ovality Index and Rotation Angle Measurements...](https://doi.org/10.3389/fmed.2022.872658)
