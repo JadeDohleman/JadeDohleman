@@ -1,4 +1,4 @@
-# Jade Dohleman
+# Jade M Dohleman
 ### Scientist | Engineer | Developer | Product | Capital | Services
 
 Welcome to my GitHub! I am a multidisciplinary researcher and engineer with a passion for bridging the gap between high-level scientific inquiry and enterprise-grade software solutions. My background spans **Nanoengineering**, **Materials Science**, **Ophthalmological Science**, and **Software Architecture**.
