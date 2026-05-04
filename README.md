@@ -11,7 +11,7 @@ Welcome to my GitHub! I am a multidisciplinary researcher and engineer with a pa
 Providing specialized consulting and custom software services for product capital and technological development.
 
 ### Clinical Imaging & Research
-Several years of experience at **UC San Diego Health Sciences** (Computational Ophthalmology Group) translating complex image segmentation algorithms (SALSA) from MATLAB to Python3 and leveraging supercomputers to analyze terabytes of clinical OCT scans.
+Several years of experience at **UC San Diego Health Sciences** (Computational Ophthalmology Group) translating and writing complex image segmentation algorithms (SALSA) from MATLAB, Python3, and supercomputers to analyze terabytes of clinical OCT scans.
 
 ---
 
